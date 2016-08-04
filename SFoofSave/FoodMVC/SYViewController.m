@@ -17,11 +17,15 @@
 
 #import "AuthenticationEnterpriseViewController.h"
 
+#import "UITabBarCustemView.h"
+
+
 #define ENTERPRISE_URL @"http://shfda.org/data/showdatamobile.do?menu-id=enterprise"
 #define PRODUCT_URL @"http://shfda.org/data/showdatamobile.do?menu-id=product"
 
 @interface SYViewController ()
 {
+    UITabBarCustemView *_tabBarCustemView;
     
     
 }
@@ -46,8 +50,17 @@
     
     
     
-    
-    
+    _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)];
+        [self.view addSubview:_tabBarCustemView];
+    [_tabBarCustemView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.right.mas_equalTo(self.view.mas_left).with.offset(0);
+//        make.bottom.mas_equalTo(self.view.mas_bottom).with.offset(0);
+        make.height.mas_offset(50);
+        make.width.mas_offset(self.view.frame.size.width);
+        make.left.mas_equalTo(self.view.mas_left).offset(0);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
+    }];
+
 }
 //商品企业
 - (IBAction)CommodityInquire:(UIButton *)sender {

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface UITabBarCustemView : UIView
+@property (nonatomic,strong) UIImageView *tabBarBaseView;
+@property (nonatomic,strong) UIImageView *centerImageView;
+@property (nonatomic,strong) UIButton        *homeBtn;
+@property (nonatomic,strong) UIButton        *myBtn;
+
 
 @end
