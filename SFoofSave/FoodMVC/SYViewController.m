@@ -61,13 +61,17 @@
     _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width+40, 0) CustomTabBarSelectBtnBlock:^(NSInteger index) {
         NSLog(@"%ld",(long)index);
         if (index == 1) {  //首页
-         _myviewController.view.hidden  = YES;
+             _myviewController.view.hidden  = YES;
+            self.title = @"上食安";
+        
         }
         else if (index == 2){  //扫码
             
         }
         else if (index == 3){ //我的
-         _myviewController.view.hidden  = NO;
+            self.title = @"我的";
+             _myviewController.view.hidden  = NO;
+            
         }
         
         
