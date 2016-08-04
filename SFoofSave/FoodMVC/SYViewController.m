@@ -18,6 +18,7 @@
 #import "AuthenticationEnterpriseViewController.h"
 
 #import "UITabBarCustemView.h"
+#import "MyViewController.h"
 
 
 #define ENTERPRISE_URL @"http://shfda.org/data/showdatamobile.do?menu-id=enterprise"
@@ -38,6 +39,8 @@
 @property (nonatomic,strong) NSString *UrlStr2;//拼接条形码网址所用的
 @property (nonatomic,strong) NSString *UrlStr3;//拼接条形码网址所用的
 @property (nonatomic,strong) NSString *UrlStr4;//拼接条形码网址所用的
+@property (nonatomic,strong) MyViewController *myviewController;
+
 
 
 @end
@@ -48,16 +51,35 @@
     [super viewDidLoad];
     self.title = @"上食安";
     
+    //我的
+    _myviewController = [[MyViewController alloc] init];
+    [self addChildViewController:_myviewController];
+    [self.view addSubview:_myviewController.view];
+    _myviewController.view.hidden  = YES;
+
     
+    _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width+40, 0) CustomTabBarSelectBtnBlock:^(NSInteger index) {
+        NSLog(@"%ld",(long)index);
+        if (index == 1) {  //首页
+         _myviewController.view.hidden  = YES;
+        }
+        else if (index == 2){  //扫码
+            
+        }
+        else if (index == 3){ //我的
+         _myviewController.view.hidden  = NO;
+        }
+        
+        
+        
+        
+    }];//图片360*71
     
-    _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)];
-        [self.view addSubview:_tabBarCustemView];
+    [self.view addSubview:_tabBarCustemView];
     [_tabBarCustemView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.right.mas_equalTo(self.view.mas_left).with.offset(0);
-//        make.bottom.mas_equalTo(self.view.mas_bottom).with.offset(0);
-        make.height.mas_offset(50);
-        make.width.mas_offset(self.view.frame.size.width);
-        make.left.mas_equalTo(self.view.mas_left).offset(0);
+        make.height.mas_offset(71);
+        make.width.mas_offset(360);
+        make.left.mas_equalTo(self.view.mas_left).offset(-20);
         make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
     }];
 
