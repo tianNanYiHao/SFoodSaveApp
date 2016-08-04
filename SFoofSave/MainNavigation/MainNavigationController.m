@@ -13,10 +13,16 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor blueColor],NSFontAttributeName : [UIFont systemFontOfSize:17]};
+    self.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName : [UIFont systemFontOfSize:17]};
     self.navigationBar.tintColor = [Common hexStringToColor:@"589e3e"];
     
+
+    
+//    self.navigationBar.translucent = NO;
 //    self.navigationBar.backgroundColor = [Common hexStringToColor:@"f"];
     
 }
+
+
+
     @end

@@ -51,13 +51,15 @@
     [super viewDidLoad];
     self.title = @"上食安";
     
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"更多选项"] style:UIBarButtonItemStyleDone target:self action:@selector(rightTouchClick)];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+
     //我的
     _myviewController = [[MyViewController alloc] init];
     [self addChildViewController:_myviewController];
     [self.view addSubview:_myviewController.view];
     _myviewController.view.hidden  = YES;
 
-    
     _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width+40, 0) CustomTabBarSelectBtnBlock:^(NSInteger index) {
         NSLog(@"%ld",(long)index);
         if (index == 1) {  //首页
@@ -73,10 +75,6 @@
              _myviewController.view.hidden  = NO;
             
         }
-        
-        
-        
-        
     }];//图片360*71
     
     [self.view addSubview:_tabBarCustemView];
@@ -88,6 +86,11 @@
     }];
 
 }
+
+- (void)rightTouchClick{
+    
+}
+
 //商品企业
 - (IBAction)CommodityInquire:(UIButton *)sender {
     NSLog(@"商品企业");
