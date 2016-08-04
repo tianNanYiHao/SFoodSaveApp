@@ -50,11 +50,15 @@
     
     
     
-    _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 200, 320, 50)];
+    _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)];
         [self.view addSubview:_tabBarCustemView];
     [_tabBarCustemView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.view.mas_right).with.offset(0);
-        make.bottom.mas_equalTo(self.view.mas_bottom).with.offset(0);
+//        make.right.mas_equalTo(self.view.mas_left).with.offset(0);
+//        make.bottom.mas_equalTo(self.view.mas_bottom).with.offset(0);
+        make.height.mas_offset(50);
+        make.width.mas_offset(self.view.frame.size.width);
+        make.left.mas_equalTo(self.view.mas_left).offset(0);
+        make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
     }];
 
 }
