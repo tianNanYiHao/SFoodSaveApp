@@ -35,6 +35,7 @@
     // Do any additional setup after loading the view.
     
     self.title = @"认证商品";
+    self.view.backgroundColor = [UIColor whiteColor];
     
 //    _webView = [[UIWebView alloc]initWithFrame:self.view.frame];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:PRODUCT_URL]];

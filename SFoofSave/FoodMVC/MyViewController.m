@@ -8,7 +8,8 @@
 
 #import "MyViewController.h"
 #import "ComplaintViewController.h"
-
+#import "AboutUSViewController.h"
+#import "VensionInfoViewController.h"
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_tableview;
@@ -26,7 +27,7 @@
     _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStyleGrouped];
     _tableview.delegate = self;
     _tableview.dataSource = self;
-    _tableview.separatorStyle = UITableViewCellAccessoryNone;
+//    _tableview.separatorStyle = UITableViewCellAccessoryNone;
     [self.view addSubview:_tableview];
     
     
@@ -64,6 +65,9 @@
             cell.textLabel.text = @"关于我们";
         }
     }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
     
 }
@@ -79,8 +83,14 @@
     }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
             //版本信息
+            VensionInfoViewController *v = [[VensionInfoViewController alloc] initWithNibName:@"VensionInfoViewController" bundle:nil];
+            v.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:v animated:YES];
         }else if (indexPath.row ==1){
             //关于我们
+            VensionInfoViewController *v = [[VensionInfoViewController alloc] initWithNibName:@"VensionInfoViewController" bundle:nil];
+            v.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:v animated:YES];
         }
     }
     

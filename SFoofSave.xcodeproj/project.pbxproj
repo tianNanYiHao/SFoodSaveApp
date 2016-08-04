@@ -163,6 +163,10 @@
 		BFC127BC1D51EF4000CAFA12 /* ProducyListSYCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC127A21D51EF4000CAFA12 /* ProducyListSYCell.xib */; };
 		BFC127BD1D51EF4000CAFA12 /* ProducyListSYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC127A41D51EF4000CAFA12 /* ProducyListSYModel.m */; };
 		BFC127C01D52D2CB00CAFA12 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC127BF1D52D2CB00CAFA12 /* Foundation+Log.m */; };
+		BFFA53A21D53394000A3FB20 /* AboutUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFA53A01D53394000A3FB20 /* AboutUSViewController.m */; };
+		BFFA53A31D53394000A3FB20 /* AboutUSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFA53A11D53394000A3FB20 /* AboutUSViewController.xib */; };
+		BFFA53A71D5339EC00A3FB20 /* VensionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFA53A51D5339EC00A3FB20 /* VensionInfoViewController.m */; };
+		BFFA53A81D5339EC00A3FB20 /* VensionInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFA53A61D5339EC00A3FB20 /* VensionInfoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -456,6 +460,12 @@
 		BFC127A31D51EF4000CAFA12 /* ProducyListSYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducyListSYModel.h; sourceTree = "<group>"; };
 		BFC127A41D51EF4000CAFA12 /* ProducyListSYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducyListSYModel.m; sourceTree = "<group>"; };
 		BFC127BF1D52D2CB00CAFA12 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		BFFA539F1D53394000A3FB20 /* AboutUSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUSViewController.h; sourceTree = "<group>"; };
+		BFFA53A01D53394000A3FB20 /* AboutUSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUSViewController.m; sourceTree = "<group>"; };
+		BFFA53A11D53394000A3FB20 /* AboutUSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUSViewController.xib; sourceTree = "<group>"; };
+		BFFA53A41D5339EC00A3FB20 /* VensionInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VensionInfoViewController.h; sourceTree = "<group>"; };
+		BFFA53A51D5339EC00A3FB20 /* VensionInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VensionInfoViewController.m; sourceTree = "<group>"; };
+		BFFA53A61D5339EC00A3FB20 /* VensionInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VensionInfoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -660,6 +670,12 @@
 				BF43E47B1D53248B0094B162 /* MyViewController.xib */,
 				BFC126B01D51E71B00CAFA12 /* ScanViewController.h */,
 				BFC126B11D51E71B00CAFA12 /* ScanViewController.m */,
+				BFFA53A41D5339EC00A3FB20 /* VensionInfoViewController.h */,
+				BFFA53A51D5339EC00A3FB20 /* VensionInfoViewController.m */,
+				BFFA53A61D5339EC00A3FB20 /* VensionInfoViewController.xib */,
+				BFFA539F1D53394000A3FB20 /* AboutUSViewController.h */,
+				BFFA53A01D53394000A3FB20 /* AboutUSViewController.m */,
+				BFFA53A11D53394000A3FB20 /* AboutUSViewController.xib */,
 				BFC1270A1D51ECBD00CAFA12 /* FoodTraceability */,
 			);
 			path = FoodMVC;
@@ -1182,6 +1198,7 @@
 				BFC124A31D519FD400CAFA12 /* Images.xcassets in Resources */,
 				BFC124941D518AA100CAFA12 /* Icon-72@2x.png in Resources */,
 				BFC127BA1D51EF4000CAFA12 /* ManualSearchSYViewController.xib in Resources */,
+				BFFA53A31D53394000A3FB20 /* AboutUSViewController.xib in Resources */,
 				BFC124921D518AA100CAFA12 /* Icon-60@3x.png in Resources */,
 				BFC124951D518AA100CAFA12 /* Icon-76.png in Resources */,
 				BFC124901D518AA100CAFA12 /* Icon-60.png in Resources */,
@@ -1192,6 +1209,7 @@
 				BF43E46E1D52EE120094B162 /* Info.plist in Resources */,
 				BFC127B31D51EF4000CAFA12 /* CompaneyProductInfoController.xib in Resources */,
 				BFC1249C1D518AA100CAFA12 /* Icon.png in Resources */,
+				BFFA53A81D5339EC00A3FB20 /* VensionInfoViewController.xib in Resources */,
 				BFC124911D518AA100CAFA12 /* Icon-60@2x.png in Resources */,
 				BFC1248D1D518AA100CAFA12 /* Icon-40.png in Resources */,
 				BFC124991D518AA100CAFA12 /* Icon-Small.png in Resources */,
@@ -1266,6 +1284,7 @@
 				BFC127041D51E85500CAFA12 /* TAAnimatedDotView.m in Sources */,
 				BFC125C11D51C92E00CAFA12 /* DateUtil.m in Sources */,
 				BFC125FE1D51C9F000CAFA12 /* MJRefreshNormalHeader.m in Sources */,
+				BFFA53A21D53394000A3FB20 /* AboutUSViewController.m in Sources */,
 				BFC127761D51EE4000CAFA12 /* BoRefreshAutoStateFooter.m in Sources */,
 				BFC127021D51E85500CAFA12 /* NSData+SDDataCache.m in Sources */,
 				BFC127A81D51EF4000CAFA12 /* CertificationGoodsModel.m in Sources */,
@@ -1310,6 +1329,7 @@
 				BFC125F41D51C9F000CAFA12 /* MJRefreshComponent.m in Sources */,
 				BFC125161D51C6F900CAFA12 /* PSTAlertController.m in Sources */,
 				BFC127A91D51EF4000CAFA12 /* AuthenticationDeviceViewController.m in Sources */,
+				BFFA53A71D5339EC00A3FB20 /* VensionInfoViewController.m in Sources */,
 				BFC125531D51C87600CAFA12 /* AFSecurityPolicy.m in Sources */,
 				BFC125BE1D51C92E00CAFA12 /* NSString+URLEncoding.m in Sources */,
 				BF43E4751D52EE120094B162 /* NSArray+MASAdditions.m in Sources */,
