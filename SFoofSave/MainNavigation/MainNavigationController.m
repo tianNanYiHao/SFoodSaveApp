@@ -14,7 +14,8 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor blueColor],NSFontAttributeName : [UIFont systemFontOfSize:17]};
-    self.navigationBar.tintColor = [Common hexStringToColor:@"dddddd"];
+    self.navigationBar.tintColor = [Common hexStringToColor:@"589e3e"];
+    
 //    self.navigationBar.backgroundColor = [Common hexStringToColor:@"f"];
     
 }

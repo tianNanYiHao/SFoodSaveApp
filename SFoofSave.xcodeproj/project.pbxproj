@@ -18,6 +18,8 @@
 		BF43E4761D52EE120094B162 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF43E4681D52EE120094B162 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		BF43E4771D52EE120094B162 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF43E46A1D52EE120094B162 /* View+MASAdditions.m */; };
 		BF43E4781D52EE120094B162 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF43E46D1D52EE120094B162 /* ViewController+MASAdditions.m */; };
+		BF43E47C1D53248B0094B162 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF43E47A1D53248B0094B162 /* MyViewController.m */; };
+		BF43E47D1D53248B0094B162 /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF43E47B1D53248B0094B162 /* MyViewController.xib */; };
 		BF4D45F01D51809500984ADA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4D45EF1D51809500984ADA /* main.m */; };
 		BF4D45F31D51809500984ADA /* MyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4D45F21D51809500984ADA /* MyAppDelegate.m */; };
 		BF4D45F91D51809500984ADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4D45F71D51809500984ADA /* Main.storyboard */; };
@@ -190,6 +192,9 @@
 		BF43E46B1D52EE120094B162 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		BF43E46C1D52EE120094B162 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		BF43E46D1D52EE120094B162 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		BF43E4791D53248B0094B162 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		BF43E47A1D53248B0094B162 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		BF43E47B1D53248B0094B162 /* MyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyViewController.xib; sourceTree = "<group>"; };
 		BF4D45EB1D51809500984ADA /* SFoofSave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFoofSave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4D45EF1D51809500984ADA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF4D45F11D51809500984ADA /* MyAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyAppDelegate.h; sourceTree = "<group>"; };
@@ -650,6 +655,9 @@
 				BFC1264B1D51DF5100CAFA12 /* SYViewController.h */,
 				BFC1264C1D51DF5100CAFA12 /* SYViewController.m */,
 				BFC1264D1D51DF5100CAFA12 /* SYViewController.xib */,
+				BF43E4791D53248B0094B162 /* MyViewController.h */,
+				BF43E47A1D53248B0094B162 /* MyViewController.m */,
+				BF43E47B1D53248B0094B162 /* MyViewController.xib */,
 				BFC126B01D51E71B00CAFA12 /* ScanViewController.h */,
 				BFC126B11D51E71B00CAFA12 /* ScanViewController.m */,
 				BFC1270A1D51ECBD00CAFA12 /* FoodTraceability */,
@@ -1194,6 +1202,7 @@
 				BFC1249B1D518AA100CAFA12 /* Icon-Small@3x.png in Resources */,
 				BFC1249A1D518AA100CAFA12 /* Icon-Small@2x.png in Resources */,
 				BFC124971D518AA100CAFA12 /* Icon-Small-50.png in Resources */,
+				BF43E47D1D53248B0094B162 /* MyViewController.xib in Resources */,
 				BFC124931D518AA100CAFA12 /* Icon-72.png in Resources */,
 				BFC1248E1D518AA100CAFA12 /* Icon-40@2x.png in Resources */,
 				BF4D45F91D51809500984ADA /* Main.storyboard in Resources */,
@@ -1310,6 +1319,7 @@
 				BFC125C31D51C92E00CAFA12 /* UIDevice+iOS7AndIphone5.m in Sources */,
 				BFC1255E1D51C87600CAFA12 /* UIRefreshControl+AFNetworking.m in Sources */,
 				BFC127B51D51EF4000CAFA12 /* ComplaintViewController.m in Sources */,
+				BF43E47C1D53248B0094B162 /* MyViewController.m in Sources */,
 				BFC1255A1D51C87600CAFA12 /* UIAlertView+AFNetworking.m in Sources */,
 				BFC126461D51CC9600CAFA12 /* FMResultSet.m in Sources */,
 				BFC126291D51CA1900CAFA12 /* SDImageCache.m in Sources */,
