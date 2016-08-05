@@ -205,42 +205,4 @@
     [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
 }
 
-//- (void)showScanCodeViewController {
-//    ScanCodeViewController *scanCode = [[ScanCodeViewController alloc] init];
-//    [scanCode setQrUrlBlock:^(NSString *stringValue,BOOL Barcode) {
-//        
-//        NSLog(@"ScanCodeViewController:%@",stringValue);
-//        
-//        ScanViewController *scanVC = [[ScanViewController alloc]init];
-//        
-//        if (Barcode) {
-//            Barcode = NO;
-//            self.UrlStr1 = @"http://shfda.org/c/p-";
-//            self.UrlStr3 = @".html?";
-//            self.UrlStr4 = @"longitude=121.627536&latitude=31.250526&scanType=barcode&type=EAN_13&address=%E4%B8%8A%E6%B5%B7%E5%B8%82%E9%87%91%E8%B1%AB%E8%B7%AF818%E5%8F%B7&city=%E4%B8%8A%E6%B5%B7%E5%B8%82";
-//            self.UrlStr2 = stringValue;
-//            
-//            stringValue = [NSString stringWithFormat:@"%@%@%@%@",self.UrlStr1,self.UrlStr2,self.UrlStr3,self.UrlStr4];
-//            
-//            scanVC.scanCode = stringValue;
-//            [self.navigationController pushViewController:scanVC animated:YES];
-//            
-//        }
-//        else {
-//            BOOL ret1 = [stringValue hasPrefix:@"http://stfic.com"];
-//            if (ret1) {
-//                //说明是
-//                scanVC.scanCode = stringValue;
-//                [self.navigationController pushViewController:scanVC animated:YES];
-//                
-//            }else {
-//                //                [Common showMsgBox:@"" msg:@"二维码格式错误" parentCtrl:self];
-//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"二维码格式错误" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
-//                [alert show];
-//            }
-//        }
-//    }];
-//    [self presentViewController:scanCode animated:YES completion:nil];
-//}
-
 @end
