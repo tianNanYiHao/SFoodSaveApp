@@ -35,10 +35,11 @@
     BOOL click;
     SetUpViewController *_setUpViewController;
     UIView *maskVIew;
-    
 
 }
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIView *homeBGview;
+
 @property (weak, nonatomic) IBOutlet UIButton *commodityInquireBtn;//商品溯源btn
 
 @property (weak, nonatomic) IBOutlet UIButton *commodityTraceBtn;//追溯数据btn
@@ -70,7 +71,7 @@
     [_bgView addSubview:_myviewController.view];
     _myviewController.view.hidden  = YES;
 
-    _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width+40, 0) CustomTabBarSelectBtnBlock:^(NSInteger index) {
+    _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0) CustomTabBarSelectBtnBlock:^(NSInteger index) {
         NSLog(@"%ld",(long)index);
         if (index == 1) {  //首页
              _myviewController.view.hidden  = YES;
@@ -96,8 +97,8 @@
     [_bgView addSubview:_tabBarCustemView];
     [_tabBarCustemView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(71);
-        make.width.mas_offset(360);
-        make.left.mas_equalTo(self.view.mas_left).offset(-20);
+        make.width.mas_offset(boundsWidth);
+        make.left.mas_equalTo(self.view.mas_left).offset(0);
         make.bottom.mas_equalTo(self.view.mas_bottom).offset(0);
     }];
 
@@ -107,35 +108,36 @@
     _setUpViewController = [[SetUpViewController alloc] initWithNibName:@"SetUpViewController" bundle:nil];
     [self addChildViewController:_setUpViewController];
     [_bgView addSubview:_setUpViewController.view];
-    _setUpViewController.view.frame = CGRectMake(self.view.bounds.size.width/2, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    _setUpViewController.view.frame = CGRectMake(boundsWidth, 0, boundsWidth/4*3, boundsHeight);
     _setUpViewController.view.hidden = YES;
     
     
-//    //暗色遮罩
-//    maskVIew = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/2, self.view.bounds.size.height)];
-//    maskVIew.backgroundColor  = [UIColor blackColor];
-//    [[UIApplication sharedApplication].keyWindow addSubview:maskVIew];
-//    maskVIew.alpha = 0;
+    //暗色遮罩
+    maskVIew = [[UIView alloc] initWithFrame:CGRectMake(0, 64, boundsWidth/4, boundsHeight-64
+                                                        )];
+    maskVIew.backgroundColor  = [UIColor blackColor];
+    [[UIApplication sharedApplication].keyWindow addSubview:maskVIew];
+    maskVIew.alpha = 0;
 
 }
 
 - (void)rightTouchClick{
     click = !click;
     if (!click) {
-        [UIView animateWithDuration:0.1 animations:^{
-//            maskVIew.alpha = 0.3;
-            self.view.frame = CGRectMake(-self.view.bounds.size.width/2, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-            _setUpViewController.view.frame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width/2, self.view.bounds.size.height);
-            self.navigationController.navigationBar.frame = CGRectMake(-self.view.bounds.size.width/2, 0, self.view.bounds.size.width, 64);
+        [UIView animateWithDuration:0.3 animations:^{
             
+            maskVIew.alpha = 0.3;
+            self.view.frame = CGRectMake(-boundsWidth/4*3, 0, boundsWidth, boundsHeight); //
+            maskVIew.frame = CGRectMake(-boundsWidth/4, 64, boundsWidth, boundsHeight-64);
+            self.navigationController.navigationBar.frame = CGRectMake(-boundsWidth/4*3, 0, boundsWidth, 64);
         } completion:^(BOOL finished) {
             _setUpViewController.view.hidden  = NO;
         }];
     }else{
-        [UIView animateWithDuration:0.1 animations:^{
-//            maskVIew.alpha = 0;
-            self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-             self.navigationController.navigationBar.frame = CGRectMake(0, 0, self.view.bounds.size.width, 64);
+        [UIView animateWithDuration:0.3 animations:^{
+            maskVIew.alpha = 0;
+            self.view.frame = CGRectMake(0, 0, boundsWidth, boundsHeight);
+             self.navigationController.navigationBar.frame = CGRectMake(0, 0, boundsWidth, 64);
         } completion:^(BOOL finished) {
             _setUpViewController.view.hidden = YES;
         }];
@@ -143,7 +145,13 @@
 
 }
 
-
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.frame = CGRectMake(0, 0, boundsWidth, 64);
+     self.navigationController.navigationBar.hidden = NO;
+    
+}
 //商品企业
 - (IBAction)CommodityInquire:(UIButton *)sender {
     NSLog(@"商品企业");
