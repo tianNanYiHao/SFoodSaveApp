@@ -73,7 +73,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIj-DR-4TX">
-                            <rect key="frame" x="0.0" y="474" width="320" height="30"/>
+                            <rect key="frame" x="0.0" y="464" width="320" height="40"/>
                             <color key="backgroundColor" red="0.089856537078746385" green="0.72731920811518325" blue="0.26498380891230433" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="追溯">
@@ -112,7 +112,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入批次号或生产号" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p8J-30-dLL">
-                            <rect key="frame" x="0.0" y="442" width="320" height="30"/>
+                            <rect key="frame" x="0.0" y="434" width="320" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>

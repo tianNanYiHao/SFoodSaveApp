@@ -423,6 +423,9 @@
 		BFFA56DD1D543AE800A3FB20 /* ZXMultiFormatWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFA55E31D543AE800A3FB20 /* ZXMultiFormatWriter.m */; };
 		BFFA56DE1D543AE800A3FB20 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BFFA55E51D543AE800A3FB20 /* README.md */; };
 		BFFA56DF1D543AE800A3FB20 /* UIImageView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFA55E91D543AE800A3FB20 /* UIImageView+CornerRadius.m */; };
+		BFFA56E31D5458AB00A3FB20 /* NFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFA56E11D5458AB00A3FB20 /* NFCViewController.m */; };
+		BFFA56E41D5458AB00A3FB20 /* NFCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFA56E21D5458AB00A3FB20 /* NFCViewController.xib */; };
+		BFFA56EC1D5471DB00A3FB20 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFA56EB1D5471DB00A3FB20 /* DDMenuController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1247,6 +1250,11 @@
 		BFFA55E51D543AE800A3FB20 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BFFA55E81D543AE800A3FB20 /* UIImageView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CornerRadius.h"; sourceTree = "<group>"; };
 		BFFA55E91D543AE800A3FB20 /* UIImageView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CornerRadius.m"; sourceTree = "<group>"; };
+		BFFA56E01D5458AB00A3FB20 /* NFCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NFCViewController.h; sourceTree = "<group>"; };
+		BFFA56E11D5458AB00A3FB20 /* NFCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NFCViewController.m; sourceTree = "<group>"; };
+		BFFA56E21D5458AB00A3FB20 /* NFCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NFCViewController.xib; sourceTree = "<group>"; };
+		BFFA56EA1D5471DB00A3FB20 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
+		BFFA56EB1D5471DB00A3FB20 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1457,6 +1465,9 @@
 				BFFA539F1D53394000A3FB20 /* AboutUSViewController.h */,
 				BFFA53A01D53394000A3FB20 /* AboutUSViewController.m */,
 				BFFA53A11D53394000A3FB20 /* AboutUSViewController.xib */,
+				BFFA56E01D5458AB00A3FB20 /* NFCViewController.h */,
+				BFFA56E11D5458AB00A3FB20 /* NFCViewController.m */,
+				BFFA56E21D5458AB00A3FB20 /* NFCViewController.xib */,
 				BFC1270A1D51ECBD00CAFA12 /* FoodTraceability */,
 			);
 			path = FoodMVC;
@@ -1474,6 +1485,7 @@
 		BFC124E71D51B4F300CAFA12 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				BFFA56E61D545E9900A3FB20 /* DDMenuController */,
 				BFFA53CA1D543AE800A3FB20 /* LBXAlertAction */,
 				BFFA53D71D543AE800A3FB20 /* LBXScan */,
 				BFFA53F71D543AE800A3FB20 /* ZXingObjC */,
@@ -2776,6 +2788,15 @@
 			path = CornerRadiusCategory;
 			sourceTree = "<group>";
 		};
+		BFFA56E61D545E9900A3FB20 /* DDMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				BFFA56EA1D5471DB00A3FB20 /* DDMenuController.h */,
+				BFFA56EB1D5471DB00A3FB20 /* DDMenuController.m */,
+			);
+			path = DDMenuController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2838,6 +2859,7 @@
 				BFC124981D518AA100CAFA12 /* Icon-Small-50@2x.png in Resources */,
 				BFC127A71D51EF4000CAFA12 /* CertificationGoodsCell.xib in Resources */,
 				BFC127AD1D51EF4000CAFA12 /* CompaneyDetalSearchController.xib in Resources */,
+				BFFA56E41D5458AB00A3FB20 /* NFCViewController.xib in Resources */,
 				BFC124A31D519FD400CAFA12 /* Images.xcassets in Resources */,
 				BFC124941D518AA100CAFA12 /* Icon-72@2x.png in Resources */,
 				BFC127BA1D51EF4000CAFA12 /* ManualSearchSYViewController.xib in Resources */,
@@ -3044,6 +3066,7 @@
 				BFFA56AD1D543AE800A3FB20 /* ZXPDF417BarcodeValue.m in Sources */,
 				BFFA55F41D543AE800A3FB20 /* LBXScanResult.m in Sources */,
 				BFC125FE1D51C9F000CAFA12 /* MJRefreshNormalHeader.m in Sources */,
+				BFFA56E31D5458AB00A3FB20 /* NFCViewController.m in Sources */,
 				BFFA56971D543AE800A3FB20 /* ZXEAN13Writer.m in Sources */,
 				BFFA56651D543AE800A3FB20 /* ZXDataMatrixHighLevelEncoder.m in Sources */,
 				BFFA53C91D542F4A00A3FB20 /* UIWindow+Hierarchy.m in Sources */,
@@ -3170,6 +3193,7 @@
 				BFFA53C61D542F4A00A3FB20 /* NSArray+Sort.m in Sources */,
 				BFC125F41D51C9F000CAFA12 /* MJRefreshComponent.m in Sources */,
 				BFFA563B1D543AE800A3FB20 /* ZXReedSolomonEncoder.m in Sources */,
+				BFFA56EC1D5471DB00A3FB20 /* DDMenuController.m in Sources */,
 				BFFA560D1D543AE800A3FB20 /* ZXAztecWriter.m in Sources */,
 				BFFA56721D543AE800A3FB20 /* ZXAbstractExpandedDecoder.m in Sources */,
 				BFFA55F81D543AE800A3FB20 /* LBXScanViewStyle.m in Sources */,

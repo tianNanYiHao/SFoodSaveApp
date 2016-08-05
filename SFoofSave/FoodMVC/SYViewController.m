@@ -23,7 +23,7 @@
 
 #import "SubLBXScanViewController.h"
 #import "LBXScanWrapper.h"
-
+#import "NFCViewController.h"
 #define ENTERPRISE_URL @"http://shfda.org/data/showdatamobile.do?menu-id=enterprise"
 #define PRODUCT_URL @"http://shfda.org/data/showdatamobile.do?menu-id=product"
 
@@ -53,7 +53,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"上食安";
-    
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"更多选项"] style:UIBarButtonItemStyleDone target:self action:@selector(rightTouchClick)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
 
@@ -97,7 +96,7 @@
 }
 
 - (void)rightTouchClick{
-    
+
 }
 
 //商品企业
@@ -105,7 +104,6 @@
     NSLog(@"商品企业");
 
         //已经登陆
-        
         AuthenticationEnterpriseViewController *AuthenticaionVC = [[AuthenticationEnterpriseViewController alloc]init];
         AuthenticaionVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:AuthenticaionVC animated:YES];
@@ -138,7 +136,9 @@
 
 - (IBAction)NFCInduction:(id)sender {//NFC感应
     NSLog(@"NFC");
-    [Common showMsgBox:nil msg:@"正在建设中..." parentCtrl:self];
+    NFCViewController *nfc = [[NFCViewController alloc] initWithNibName:@"NFCViewController" bundle:nil];
+    [self.navigationController pushViewController:nfc animated:YES];
+    
 }
 
 - (IBAction)ManualInput:(id)sender {//手动输入

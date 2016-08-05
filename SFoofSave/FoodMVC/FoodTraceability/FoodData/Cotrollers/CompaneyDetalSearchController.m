@@ -173,12 +173,17 @@
         NSString *s = [NSString new];
         s = [_modell2.arrayInfoProductOUT[i] batchProductOut];
         NSLog(@"%@",s);
-        [a addObject:s];
+        if (s == nil) {
+            //判空
+        }else{
+            [a addObject:s];
+        }
     }
     
-    for (NSString *SS in a) {
+    if (a.count>0) {
+        for (NSString *SS in a) {
             if ([_productID.text isEqualToString:SS]) {
-                 [self clickwithBatch:_productID.text  ID:_codeID];
+                [self clickwithBatch:_productID.text  ID:_codeID];
                 return;
             }
             else
@@ -186,7 +191,14 @@
                 [Common showMsgBox:@"" msg:@"请输入正确批次号" parentCtrl:self];
                 return;
             }
+        }
+    }else{ //如果批次号返回为null  则输什么都不对
+        [Common showMsgBox:@"" msg:@"请输入正确批次号" parentCtrl:self];
+        return;
+
     }
+    
+
 }
 
 
