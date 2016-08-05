@@ -30,8 +30,7 @@
 @interface SYViewController ()
 {
     UITabBarCustemView *_tabBarCustemView;
-    
-    
+
 }
 @property (weak, nonatomic) IBOutlet UIButton *commodityInquireBtn;//商品溯源btn
 
@@ -94,10 +93,11 @@
     }];
 
 }
-
 - (void)rightTouchClick{
 
+    
 }
+
 
 //商品企业
 - (IBAction)CommodityInquire:(UIButton *)sender {

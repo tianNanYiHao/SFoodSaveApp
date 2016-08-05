@@ -50,6 +50,10 @@
 @synthesize tap=_tap;
 @synthesize pan=_pan;
 
+- (void)setEnableGesture:(BOOL)isEnable {
+    [self.pan setEnabled:isEnable];
+    [self.tap setEnabled:isEnable];
+}
 
 - (id)initWithRootViewController:(UIViewController*)controller {
     if ((self = [super init])) {

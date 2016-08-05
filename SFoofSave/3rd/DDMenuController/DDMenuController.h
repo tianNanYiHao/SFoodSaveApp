@@ -58,7 +58,7 @@ typedef enum {
 }
 
 - (id)initWithRootViewController:(UIViewController*)controller;
-
+- (void)setEnableGesture:(BOOL)isEnable;
 @property(nonatomic,assign) id <DDMenuControllerDelegate> delegate;
 
 @property(nonatomic,strong) UIViewController *leftViewController;
@@ -77,5 +77,6 @@ typedef enum {
 
 @protocol DDMenuControllerDelegate 
 - (void)menuController:(DDMenuController*)controller willShowViewController:(UIViewController*)controller;
+
 
 @end

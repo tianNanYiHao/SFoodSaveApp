@@ -10,14 +10,10 @@
 #import "SYViewController.h"
 #import "MainNavigationController.h"
 #import "IQKeyboardManager.h"
-#import "DDMenuController.h"
 #import "NFCViewController.h"
 
 @interface MyAppDelegate ()
-{
-    DDMenuController *DDMenu;
-    
-}
+
 @end
 
 @implementation MyAppDelegate
@@ -25,28 +21,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     [IQKeyboardManager sharedManager];
-    
-    
-    
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     SYViewController *v = [[SYViewController alloc] init];
     MainNavigationController *nva = [[MainNavigationController alloc] initWithRootViewController:v];
-    DDMenu = [[DDMenuController alloc] initWithRootViewController:nva];
-    _window.rootViewController = DDMenu;
-    
-    
-    
-    NFCViewController *nfc = [[NFCViewController alloc] initWithNibName:@"NFCViewController" bundle:nil];
-    MainNavigationController *nfcNav = [[MainNavigationController alloc] initWithRootViewController:nfc];
-    DDMenu.
-    
-    
-    
+    _window.rootViewController = nva;
     [_window makeKeyWindow];
 
-    
     return YES;
 }
 
