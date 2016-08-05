@@ -19,6 +19,8 @@
 
 #import "UITabBarCustemView.h"
 #import "MyViewController.h"
+#import "SetUpViewController.h"
+
 
 
 #import "SubLBXScanViewController.h"
@@ -30,8 +32,13 @@
 @interface SYViewController ()
 {
     UITabBarCustemView *_tabBarCustemView;
+    BOOL click;
+    SetUpViewController *_setUpViewController;
+    UIView *maskVIew;
+    
 
 }
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIButton *commodityInquireBtn;//商品溯源btn
 
 @property (weak, nonatomic) IBOutlet UIButton *commodityTraceBtn;//追溯数据btn
@@ -52,13 +59,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"上食安";
+
+    [self createSetUpView];
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"更多选项"] style:UIBarButtonItemStyleDone target:self action:@selector(rightTouchClick)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
 
     //我的
     _myviewController = [[MyViewController alloc] init];
     [self addChildViewController:_myviewController];
-    [self.view addSubview:_myviewController.view];
+    [_bgView addSubview:_myviewController.view];
     _myviewController.view.hidden  = YES;
 
     _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width+40, 0) CustomTabBarSelectBtnBlock:^(NSInteger index) {
@@ -84,7 +93,7 @@
         }
     }];//图片360*71
     
-    [self.view addSubview:_tabBarCustemView];
+    [_bgView addSubview:_tabBarCustemView];
     [_tabBarCustemView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(71);
         make.width.mas_offset(360);
@@ -93,9 +102,45 @@
     }];
 
 }
-- (void)rightTouchClick{
-
+- (void)createSetUpView{
+    click = YES;
+    _setUpViewController = [[SetUpViewController alloc] initWithNibName:@"SetUpViewController" bundle:nil];
+    [self addChildViewController:_setUpViewController];
+    [_bgView addSubview:_setUpViewController.view];
+    _setUpViewController.view.frame = CGRectMake(self.view.bounds.size.width/2, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    _setUpViewController.view.hidden = YES;
     
+    
+//    //暗色遮罩
+//    maskVIew = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/2, self.view.bounds.size.height)];
+//    maskVIew.backgroundColor  = [UIColor blackColor];
+//    [[UIApplication sharedApplication].keyWindow addSubview:maskVIew];
+//    maskVIew.alpha = 0;
+
+}
+
+- (void)rightTouchClick{
+    click = !click;
+    if (!click) {
+        [UIView animateWithDuration:0.1 animations:^{
+//            maskVIew.alpha = 0.3;
+            self.view.frame = CGRectMake(-self.view.bounds.size.width/2, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+            _setUpViewController.view.frame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width/2, self.view.bounds.size.height);
+            self.navigationController.navigationBar.frame = CGRectMake(-self.view.bounds.size.width/2, 0, self.view.bounds.size.width, 64);
+            
+        } completion:^(BOOL finished) {
+            _setUpViewController.view.hidden  = NO;
+        }];
+    }else{
+        [UIView animateWithDuration:0.1 animations:^{
+//            maskVIew.alpha = 0;
+            self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+             self.navigationController.navigationBar.frame = CGRectMake(0, 0, self.view.bounds.size.width, 64);
+        } completion:^(BOOL finished) {
+            _setUpViewController.view.hidden = YES;
+        }];
+    }
+
 }
 
 

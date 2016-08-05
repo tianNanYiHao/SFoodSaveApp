@@ -426,6 +426,8 @@
 		BFFA56E31D5458AB00A3FB20 /* NFCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFA56E11D5458AB00A3FB20 /* NFCViewController.m */; };
 		BFFA56E41D5458AB00A3FB20 /* NFCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFA56E21D5458AB00A3FB20 /* NFCViewController.xib */; };
 		BFFA56EC1D5471DB00A3FB20 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFA56EB1D5471DB00A3FB20 /* DDMenuController.m */; };
+		BFFA56F81D5485C900A3FB20 /* SetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFA56F61D5485C900A3FB20 /* SetUpViewController.m */; };
+		BFFA56F91D5485C900A3FB20 /* SetUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFA56F71D5485C900A3FB20 /* SetUpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1255,6 +1257,9 @@
 		BFFA56E21D5458AB00A3FB20 /* NFCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NFCViewController.xib; sourceTree = "<group>"; };
 		BFFA56EA1D5471DB00A3FB20 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		BFFA56EB1D5471DB00A3FB20 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
+		BFFA56F51D5485C900A3FB20 /* SetUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpViewController.h; sourceTree = "<group>"; };
+		BFFA56F61D5485C900A3FB20 /* SetUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpViewController.m; sourceTree = "<group>"; };
+		BFFA56F71D5485C900A3FB20 /* SetUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetUpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1469,6 +1474,7 @@
 				BFFA56E11D5458AB00A3FB20 /* NFCViewController.m */,
 				BFFA56E21D5458AB00A3FB20 /* NFCViewController.xib */,
 				BFC1270A1D51ECBD00CAFA12 /* FoodTraceability */,
+				BFFA56F41D5485B400A3FB20 /* SetUpView */,
 			);
 			path = FoodMVC;
 			sourceTree = "<group>";
@@ -2797,6 +2803,17 @@
 			path = DDMenuController;
 			sourceTree = "<group>";
 		};
+		BFFA56F41D5485B400A3FB20 /* SetUpView */ = {
+			isa = PBXGroup;
+			children = (
+				BFFA56F51D5485C900A3FB20 /* SetUpViewController.h */,
+				BFFA56F61D5485C900A3FB20 /* SetUpViewController.m */,
+				BFFA56F71D5485C900A3FB20 /* SetUpViewController.xib */,
+			);
+			name = SetUpView;
+			path = FoodTraceability/SetUpView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2895,6 +2912,7 @@
 				BFC127B11D51EF4000CAFA12 /* CompaneyDetialController2.xib in Resources */,
 				BFFA55EE1D543AE800A3FB20 /* LICENSE in Resources */,
 				BFC124961D518AA100CAFA12 /* Icon-76@2x.png in Resources */,
+				BFFA56F91D5485C900A3FB20 /* SetUpViewController.xib in Resources */,
 				BFFA53C01D542F4A00A3FB20 /* IQKeyboardManager.bundle in Resources */,
 				BFC126001D51C9F000CAFA12 /* MJRefresh.bundle in Resources */,
 				BFC124771D5182BE00CAFA12 /* Default.png in Resources */,
@@ -3097,6 +3115,7 @@
 				BFFA56A31D543AE800A3FB20 /* ZXUPCEANExtension2Support.m in Sources */,
 				BFC127AB1D51EF4000CAFA12 /* CertificationGoodsViewController.m in Sources */,
 				BFFA55F31D543AE800A3FB20 /* LBXScanNetAnimation.m in Sources */,
+				BFFA56F81D5485C900A3FB20 /* SetUpViewController.m in Sources */,
 				BFC126451D51CC9600CAFA12 /* FMDatabaseQueue.m in Sources */,
 				BF43E4721D52EE120094B162 /* MASLayoutConstraint.m in Sources */,
 				BFC126021D51C9F000CAFA12 /* UIScrollView+MJExtension.m in Sources */,
