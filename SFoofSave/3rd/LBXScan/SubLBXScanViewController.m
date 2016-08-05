@@ -12,6 +12,9 @@
 #import "LBXScanResult.h"
 #import "LBXScanWrapper.h"
 #import "LBXScanVideoZoomView.h"
+#import "ScanViewController.h"
+
+
 
 @interface SubLBXScanViewController ()
 @property (nonatomic, strong) LBXScanVideoZoomView *zoomView;
@@ -172,7 +175,10 @@
     
     [_bottomItemsView addSubview:_btnFlash];
     [_bottomItemsView addSubview:_btnPhoto];
-    [_bottomItemsView addSubview:_btnMyQR];   
+    [_bottomItemsView addSubview:_btnMyQR];
+    
+    
+    self.btnMyQR.hidden = YES; //隐藏我的二维码
     
 }
 
@@ -245,14 +251,22 @@
 #pragma  mark - 跳转扫码(扫码支付)结果页面
 - (void)showNextVCWithScanResult:(LBXScanResult*)strResult
 {
-    ScanResultViewController *vc = [ScanResultViewController new];
-    vc.imgScan = strResult.imgScanned;
+//    ScanResultViewController *vc = [ScanResultViewController new];
+//    vc.imgScan = strResult.imgScanned;
+//    vc.strScan = strResult.strScanned;
+//    vc.strCodeType = strResult.strBarCodeType;
     
-    vc.strScan = strResult.strScanned;
+
+    ScanViewController *scanVIew = [[ScanViewController alloc] init];
+    NSString *UrlStr1 = @"http://shfda.org/c/p-";
+    NSString *UrlStr3 = @".html?";
+    NSString *UrlStr4 = @"longitude=121.627536&latitude=31.250526&scanType=barcode&type=EAN_13&address=%E4%B8%8A%E6%B5%B7%E5%B8%82%E9%87%91%E8%B1%AB%E8%B7%AF818%E5%8F%B7&city=%E4%B8%8A%E6%B5%B7%E5%B8%82";
+    NSString  *UrlStr2 = strResult.strScanned;
+    NSString *stringValue = [NSString stringWithFormat:@"%@%@%@%@",UrlStr1,UrlStr2,UrlStr3,UrlStr4];
+    scanVIew.scanCode = stringValue;
+    [self.navigationController pushViewController:scanVIew animated:YES];
     
-    vc.strCodeType = strResult.strBarCodeType;
     
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

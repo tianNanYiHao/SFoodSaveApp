@@ -19,20 +19,26 @@
 
 #import "UITabBarCustemView.h"
 #import "MyViewController.h"
+#import "SetUpViewController.h"
+
 
 
 #import "SubLBXScanViewController.h"
 #import "LBXScanWrapper.h"
-
+#import "NFCViewController.h"
 #define ENTERPRISE_URL @"http://shfda.org/data/showdatamobile.do?menu-id=enterprise"
 #define PRODUCT_URL @"http://shfda.org/data/showdatamobile.do?menu-id=product"
 
 @interface SYViewController ()
 {
     UITabBarCustemView *_tabBarCustemView;
+    BOOL click;
+    SetUpViewController *_setUpViewController;
+    UIView *maskVIew;
     
-    
+
 }
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIButton *commodityInquireBtn;//商品溯源btn
 
 @property (weak, nonatomic) IBOutlet UIButton *commodityTraceBtn;//追溯数据btn
@@ -53,14 +59,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"上食安";
-    
+
+    [self createSetUpView];
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"更多选项"] style:UIBarButtonItemStyleDone target:self action:@selector(rightTouchClick)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
 
     //我的
     _myviewController = [[MyViewController alloc] init];
     [self addChildViewController:_myviewController];
-    [self.view addSubview:_myviewController.view];
+    [_bgView addSubview:_myviewController.view];
     _myviewController.view.hidden  = YES;
 
     _tabBarCustemView = [[UITabBarCustemView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width+40, 0) CustomTabBarSelectBtnBlock:^(NSInteger index) {
@@ -86,7 +93,7 @@
         }
     }];//图片360*71
     
-    [self.view addSubview:_tabBarCustemView];
+    [_bgView addSubview:_tabBarCustemView];
     [_tabBarCustemView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(71);
         make.width.mas_offset(360);
@@ -95,17 +102,53 @@
     }];
 
 }
+- (void)createSetUpView{
+    click = YES;
+    _setUpViewController = [[SetUpViewController alloc] initWithNibName:@"SetUpViewController" bundle:nil];
+    [self addChildViewController:_setUpViewController];
+    [_bgView addSubview:_setUpViewController.view];
+    _setUpViewController.view.frame = CGRectMake(self.view.bounds.size.width/2, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    _setUpViewController.view.hidden = YES;
+    
+    
+//    //暗色遮罩
+//    maskVIew = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/2, self.view.bounds.size.height)];
+//    maskVIew.backgroundColor  = [UIColor blackColor];
+//    [[UIApplication sharedApplication].keyWindow addSubview:maskVIew];
+//    maskVIew.alpha = 0;
+
+}
 
 - (void)rightTouchClick{
-    
+    click = !click;
+    if (!click) {
+        [UIView animateWithDuration:0.1 animations:^{
+//            maskVIew.alpha = 0.3;
+            self.view.frame = CGRectMake(-self.view.bounds.size.width/2, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+            _setUpViewController.view.frame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width/2, self.view.bounds.size.height);
+            self.navigationController.navigationBar.frame = CGRectMake(-self.view.bounds.size.width/2, 0, self.view.bounds.size.width, 64);
+            
+        } completion:^(BOOL finished) {
+            _setUpViewController.view.hidden  = NO;
+        }];
+    }else{
+        [UIView animateWithDuration:0.1 animations:^{
+//            maskVIew.alpha = 0;
+            self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+             self.navigationController.navigationBar.frame = CGRectMake(0, 0, self.view.bounds.size.width, 64);
+        } completion:^(BOOL finished) {
+            _setUpViewController.view.hidden = YES;
+        }];
+    }
+
 }
+
 
 //商品企业
 - (IBAction)CommodityInquire:(UIButton *)sender {
     NSLog(@"商品企业");
 
         //已经登陆
-        
         AuthenticationEnterpriseViewController *AuthenticaionVC = [[AuthenticationEnterpriseViewController alloc]init];
         AuthenticaionVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:AuthenticaionVC animated:YES];
@@ -138,7 +181,9 @@
 
 - (IBAction)NFCInduction:(id)sender {//NFC感应
     NSLog(@"NFC");
-    [Common showMsgBox:nil msg:@"正在建设中..." parentCtrl:self];
+    NFCViewController *nfc = [[NFCViewController alloc] initWithNibName:@"NFCViewController" bundle:nil];
+    [self.navigationController pushViewController:nfc animated:YES];
+    
 }
 
 - (IBAction)ManualInput:(id)sender {//手动输入
@@ -204,43 +249,5 @@
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] &&
     [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
 }
-
-//- (void)showScanCodeViewController {
-//    ScanCodeViewController *scanCode = [[ScanCodeViewController alloc] init];
-//    [scanCode setQrUrlBlock:^(NSString *stringValue,BOOL Barcode) {
-//        
-//        NSLog(@"ScanCodeViewController:%@",stringValue);
-//        
-//        ScanViewController *scanVC = [[ScanViewController alloc]init];
-//        
-//        if (Barcode) {
-//            Barcode = NO;
-//            self.UrlStr1 = @"http://shfda.org/c/p-";
-//            self.UrlStr3 = @".html?";
-//            self.UrlStr4 = @"longitude=121.627536&latitude=31.250526&scanType=barcode&type=EAN_13&address=%E4%B8%8A%E6%B5%B7%E5%B8%82%E9%87%91%E8%B1%AB%E8%B7%AF818%E5%8F%B7&city=%E4%B8%8A%E6%B5%B7%E5%B8%82";
-//            self.UrlStr2 = stringValue;
-//            
-//            stringValue = [NSString stringWithFormat:@"%@%@%@%@",self.UrlStr1,self.UrlStr2,self.UrlStr3,self.UrlStr4];
-//            
-//            scanVC.scanCode = stringValue;
-//            [self.navigationController pushViewController:scanVC animated:YES];
-//            
-//        }
-//        else {
-//            BOOL ret1 = [stringValue hasPrefix:@"http://stfic.com"];
-//            if (ret1) {
-//                //说明是
-//                scanVC.scanCode = stringValue;
-//                [self.navigationController pushViewController:scanVC animated:YES];
-//                
-//            }else {
-//                //                [Common showMsgBox:@"" msg:@"二维码格式错误" parentCtrl:self];
-//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"二维码格式错误" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
-//                [alert show];
-//            }
-//        }
-//    }];
-//    [self presentViewController:scanCode animated:YES completion:nil];
-//}
 
 @end

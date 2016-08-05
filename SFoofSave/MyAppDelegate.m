@@ -10,6 +10,7 @@
 #import "SYViewController.h"
 #import "MainNavigationController.h"
 #import "IQKeyboardManager.h"
+#import "NFCViewController.h"
 
 @interface MyAppDelegate ()
 
@@ -20,16 +21,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     [IQKeyboardManager sharedManager];
-    
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     SYViewController *v = [[SYViewController alloc] init];
     MainNavigationController *nva = [[MainNavigationController alloc] initWithRootViewController:v];
     _window.rootViewController = nva;
     [_window makeKeyWindow];
-    
-    
+
     return YES;
 }
 
