@@ -9,7 +9,7 @@
 #import "MyAppDelegate.h"
 #import "SYViewController.h"
 #import "MainNavigationController.h"
-
+#import "IQKeyboardManager.h"
 
 @interface MyAppDelegate ()
 
@@ -20,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [IQKeyboardManager sharedManager];
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     SYViewController *v = [[SYViewController alloc] init];
