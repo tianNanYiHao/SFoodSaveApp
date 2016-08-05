@@ -24,6 +24,12 @@
 #define addHeight 88
 
 
+#define boundsWidth self.view.bounds.size.width
+#define boundsHeight self.view.bounds.size.height
+
+
+
+
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
