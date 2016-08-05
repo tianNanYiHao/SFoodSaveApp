@@ -64,8 +64,8 @@
     else{
         [_req getProductNodeListProductID:_productID productionDate:@"" batch:_batchCode];
         [MBProgressHUD showHUDAddedTo:self.view animated:YES WithString:@"查询中..."];
-        _coverView1.hidden = YES;
-        _coverView2.hidden = YES;
+        _coverView1.hidden = NO;
+        _coverView2.hidden = NO;
     }
 
 
@@ -83,24 +83,37 @@
         _sallAddressLab.text =_model.enterpriseAddressSY;
         _arraySY = _model._productInfoArraySY;  //数据
 
-        //1 生产      model2._nodeCodeNameSY
-        NSDictionary *dict1 = _arraySY[0];
-        ProducyListSYModel *model1 = [[ProducyListSYModel alloc] initWithSYProductListByDict:dict1];
-        _batchShow1.text = model1.companyBatchSY;
-        NSLog(@"%@",_batchShow1.text);
-        _batchLitleShow1.text = model1.companyBatchSY;
-        _productDate1.text = model1.companyDateSY;
-        _productCompany1.text = model1.companyNameSY;
-        _productStateLab1.text = model1.nodeCodeNameSY;
-        
+        if (_arraySY.count>0) {
+            //1 生产      model2._nodeCodeNameSY
+            _coverView1.hidden = YES;
+            NSDictionary *dict1 = _arraySY[0];
+            ProducyListSYModel *model1 = [[ProducyListSYModel alloc] initWithSYProductListByDict:dict1];
+            _batchShow1.text = model1.companyBatchSY;
+            NSLog(@"%@",_batchShow1.text);
+            _batchLitleShow1.text = model1.companyBatchSY;
+            _productDate1.text = model1.companyDateSY;
+            _productCompany1.text = model1.companyNameSY;
+            _productStateLab1.text = model1.nodeCodeNameSY;
+            
+            if (_arraySY.count>1) {
+                //2 进货     model2._nodeCodeNameSY
+                _coverView2.hidden = YES;
+                NSDictionary *dict2 = _arraySY[1];
+                ProducyListSYModel *model2 = [[ProducyListSYModel alloc] initWithSYProductListByDictStoke:dict2];
+                _batchShow2.text = model2.companyNameSY;
+                _batchLitleShow2.text = model2.companyNameSY;
+                _productDate2.text = model2.companyDateSY;
+                _productStateLab2.text = model2.nodeCodeNameSY;
+                if (_arraySY.count>2) {  //出货
+                    [Common showMsgBox:@"" msg:@"存在出货信息,请联系开发人员展示" parentCtrl:self];
+                }
 
-        //2 进货     model2._nodeCodeNameSY
-        NSDictionary *dict2 = _arraySY[1];
-        ProducyListSYModel *model2 = [[ProducyListSYModel alloc] initWithSYProductListByDictStoke:dict2];
-        _batchShow2.text = model2.companyNameSY;
-        _batchLitleShow2.text = model2.companyNameSY;
-        _productDate2.text = model2.companyDateSY;
-        _productStateLab2.text = model2.nodeCodeNameSY;
+            }else{
+                _coverView2.hidden = NO;
+            }
+        }else{
+            _coverView1.hidden = NO;
+        }
     }
     
     if (type == REQUSET_snCode) {
@@ -134,6 +147,9 @@
                 _productDate2.text = model2.companyDateSY;
                 _productStateLab2.text = model2.nodeCodeNameSY;
                 _coverView2.hidden = YES;
+                if (_arraySY.count>2) {  //出货
+                    [Common showMsgBox:@"" msg:@"存在出货信息,请联系开发人员展示" parentCtrl:self];
+                }
 
             }else
             {
