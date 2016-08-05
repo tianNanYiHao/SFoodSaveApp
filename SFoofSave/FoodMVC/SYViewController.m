@@ -119,6 +119,7 @@
     [[UIApplication sharedApplication].keyWindow addSubview:maskVIew];
     maskVIew.alpha = 0;
 
+    
 }
 
 - (void)rightTouchClick{
