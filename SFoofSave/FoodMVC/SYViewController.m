@@ -21,6 +21,9 @@
 #import "MyViewController.h"
 
 
+#import "SubLBXScanViewController.h"
+#import "LBXScanWrapper.h"
+
 #define ENTERPRISE_URL @"http://shfda.org/data/showdatamobile.do?menu-id=enterprise"
 #define PRODUCT_URL @"http://shfda.org/data/showdatamobile.do?menu-id=product"
 
@@ -116,6 +119,8 @@
 //扫一扫
 - (IBAction)CommodityPublic:(UIButton *)sender {
     NSLog(@"扫一扫");
+    
+      [self createZFBStyle];
 //        
 //        if ([self validateCamera]) {
 //            [self showScanCodeViewController];
@@ -139,7 +144,44 @@
     [self.navigationController pushViewController:v animated:YES];
 }
 
-
+#pragma mark - 仿支付宝扫码(style设置)
+-(void)createZFBStyle{
+    LBXScanViewStyle *style = [[LBXScanViewStyle alloc] init];
+    style.centerUpOffset = 60;
+    style.xScanRetangleOffset = 30;
+    
+    if ([UIScreen mainScreen].bounds.size.height <= 480) {
+        //如果是3.5inch 显示的扫码缩小
+        style.centerUpOffset = 40;
+        style.xScanRetangleOffset = 20;
+    }
+    
+    style.alpa_notRecoginitonArea = 0.6;
+    style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Inner;
+    style.photoframeLineW = 2.0;
+    style.photoframeAngleW = 16;
+    style.photoframeAngleH = 16;
+    
+    
+    style.isNeedShowRetangle = NO;
+    style.anmiationStyle = LBXScanViewAnimationStyle_NetGrid;
+    //使用的支付宝里面网格图片
+    UIImage *imgFullNet = [UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_full_net"];
+    style.animationImage = imgFullNet;
+    [self openScanVCWithStyle:style];
+    
+}
+#pragma  mark - 跳转扫码
+- (void)openScanVCWithStyle:(LBXScanViewStyle*)style
+{
+    SubLBXScanViewController *vc = [SubLBXScanViewController new];
+    vc.style = style;
+    vc.isOpenInterestRect = YES;//区域识别效果
+    
+    vc.isQQSimulator = YES; //qq功能预写了一些功能按钮 (相册/闪光/二维码按钮)
+    vc.isVideoZoom = YES; //增加缩放功能
+    [self.navigationController pushViewController:vc animated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
