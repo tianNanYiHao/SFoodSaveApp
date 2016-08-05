@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+typedef void(^CommonShowBoxdefaultBlock)(id defaultBlock);
+typedef void(^CommonShowBoxcancleBlock)(id cancleBlock);
+
+
 
 @interface Common : NSObject
 
@@ -31,4 +35,8 @@
 + (NSString*)getCurrentVersion;
 
 + (UIImage *) createImageWithColor: (UIColor *) color;
+
++(void)pstaAlertWithTitle:(NSString*)title message:(NSString*)message defaultTitle:(NSString*)defaultTitle cancleTitle:(NSString*)cancaleTitle defaultBlock:(CommonShowBoxdefaultBlock)defaultBlock CancleBlock:(CommonShowBoxcancleBlock)cacleBlock ctr:(UIViewController*)ctrller;
+
+
 @end
