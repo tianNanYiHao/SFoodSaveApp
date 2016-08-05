@@ -7,7 +7,7 @@
 //
 
 #import "Common.h"
-
+#import "PSTAlertController.h"
 @implementation Common
 
 +(BOOL)isPhoneNumber:(NSString*)phone{
@@ -148,5 +148,20 @@
     UIGraphicsEndImageContext();
     return myImage;
 }
+
++(void)pstaAlertWithTitle:(NSString*)title message:(NSString*)message defaultTitle:(NSString*)defaultTitle cancleTitle:(NSString*)cancaleTitle defaultBlock:(CommonShowBoxdefaultBlock)defaultBlock CancleBlock:(CommonShowBoxcancleBlock)cacleBlock ctr:(UIViewController*)ctrller{
+    
+    PSTAlertController *past = [PSTAlertController alertWithTitle:title message:message];
+    [past addAction:[PSTAlertAction actionWithTitle:defaultTitle handler:^(PSTAlertAction * _Nonnull action) {
+        defaultBlock(action);
+    } ]];
+
+    [past addAction:[PSTAlertAction actionWithTitle:cancaleTitle handler:^(PSTAlertAction * _Nonnull action) {
+        cacleBlock(action);
+    }]];
+     [past showWithSender:nil controller:ctrller animated:YES completion:NULL];
+    
+}
+
 
 @end

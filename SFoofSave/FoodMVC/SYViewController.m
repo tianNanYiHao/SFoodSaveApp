@@ -71,7 +71,13 @@
         
         }
         else if (index == 2){  //扫码
-            
+            if ([self validateCamera]) {
+                [self createZFBStyle];
+            }else{
+                [Common pstaAlertWithTitle:@"提示" message:@"请检查摄像头" defaultTitle:@"" cancleTitle:@"取消" defaultBlock:^(id defaultBlock) {
+                } CancleBlock:^(id cancleBlock) {
+                } ctr:self];
+            }
         }
         else if (index == 3){ //我的
             self.title = @"我的";
@@ -119,19 +125,17 @@
 //扫一扫
 - (IBAction)CommodityPublic:(UIButton *)sender {
     NSLog(@"扫一扫");
-    
-      [self createZFBStyle];
-//        
-//        if ([self validateCamera]) {
-//            [self showScanCodeViewController];
-//        }else{
-//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"请检查摄像头" preferredStyle:UIAlertControllerStyleAlert];
-//            UIAlertAction *ture = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-//            [alertController addAction:ture];
-//            [self presentViewController:alertController animated:YES completion:nil];
-//        }
 
+        if ([self validateCamera]) {
+                 [self createZFBStyle];
+        }else{
+            [Common pstaAlertWithTitle:@"提示" message:@"请检查摄像头" defaultTitle:@"" cancleTitle:@"取消" defaultBlock:^(id defaultBlock) {
+            } CancleBlock:^(id cancleBlock) {
+            } ctr:self];
+        }
 }
+
+
 - (IBAction)NFCInduction:(id)sender {//NFC感应
     NSLog(@"NFC");
     [Common showMsgBox:nil msg:@"正在建设中..." parentCtrl:self];
@@ -190,10 +194,10 @@
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+ In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+     Get the new view controller using [segue destinationViewController].
+     Pass the selected object to the new view controller.
 }
 */
 - (BOOL)validateCamera {
