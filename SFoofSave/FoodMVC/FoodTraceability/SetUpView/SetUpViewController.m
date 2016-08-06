@@ -7,18 +7,55 @@
 //
 
 #import "SetUpViewController.h"
-
-@interface SetUpViewController ()
+#import "ComplaintViewController.h"
+@interface SetUpViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    
+}
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end
 
 @implementation SetUpViewController
-
+- (void)getActionBlock:(SetUPviewControllerBlock)block{
+    _block = block;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title  = @"设置";
 
+    _tableview.dataSource = self;
+    _tableview.delegate = self;
+    
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *s = @"sssss";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:s];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:s];
+        
+    }
+    cell.textLabel.text = @"投诉";
+    
+    return cell;
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ComplaintViewController *complaint = [[ComplaintViewController alloc] initWithNibName:@"ComplaintViewController" bundle:nil];
+    [self.navigationController pushViewController:complaint animated:YES];
+    _block(indexPath);
 }
 
 - (void)didReceiveMemoryWarning {

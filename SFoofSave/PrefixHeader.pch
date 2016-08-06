@@ -59,6 +59,7 @@
 #import "Common.h"
 #import "Masonry.h"
 #import "MyAppDelegate.h"
+#import "UIView+ChangeFrame.h"
 
 
 #endif

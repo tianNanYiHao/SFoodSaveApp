@@ -23,6 +23,7 @@
 		BF4D45F01D51809500984ADA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4D45EF1D51809500984ADA /* main.m */; };
 		BF4D45F31D51809500984ADA /* MyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4D45F21D51809500984ADA /* MyAppDelegate.m */; };
 		BF4D45F91D51809500984ADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4D45F71D51809500984ADA /* Main.storyboard */; };
+		BF7CC2AD1D5601BA00E54980 /* UIView+ChangeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7CC2AC1D5601BA00E54980 /* UIView+ChangeFrame.m */; };
 		BFC124761D5182BE00CAFA12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC124731D5182BE00CAFA12 /* Default-568h@2x.png */; };
 		BFC124771D5182BE00CAFA12 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC124741D5182BE00CAFA12 /* Default.png */; };
 		BFC124781D5182BE00CAFA12 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFC124751D5182BE00CAFA12 /* Default@2x.png */; };
@@ -470,6 +471,8 @@
 		BF4D460A1D51809500984ADA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF4D46131D51809500984ADA /* SFoofSaveUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFoofSaveUITests.m; sourceTree = "<group>"; };
 		BF4D46151D51809500984ADA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF7CC2AB1D5601BA00E54980 /* UIView+ChangeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ChangeFrame.h"; sourceTree = "<group>"; };
+		BF7CC2AC1D5601BA00E54980 /* UIView+ChangeFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ChangeFrame.m"; sourceTree = "<group>"; };
 		BFC124731D5182BE00CAFA12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BFC124741D5182BE00CAFA12 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		BFC124751D5182BE00CAFA12 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -1399,6 +1402,15 @@
 			path = SFoofSaveUITests;
 			sourceTree = "<group>";
 		};
+		BF7CC2AA1D5601A600E54980 /* ChangeFrameCategory */ = {
+			isa = PBXGroup;
+			children = (
+				BF7CC2AB1D5601BA00E54980 /* UIView+ChangeFrame.h */,
+				BF7CC2AC1D5601BA00E54980 /* UIView+ChangeFrame.m */,
+			);
+			path = ChangeFrameCategory;
+			sourceTree = "<group>";
+		};
 		BFC124721D5182A500CAFA12 /* defImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1508,6 +1520,7 @@
 				BFC125241D51C7E400CAFA12 /* UIDevice+iOS7AndIphone5 */,
 				BFC1251A1D51C75300CAFA12 /* MBProgress */,
 				BFC124EF1D51C6F900CAFA12 /* PSTAlertController */,
+				BF7CC2AA1D5601A600E54980 /* ChangeFrameCategory */,
 			);
 			path = 3rd;
 			sourceTree = "<group>";
@@ -3259,6 +3272,7 @@
 				BFFA561B1D543AE800A3FB20 /* ZXGeoResultParser.m in Sources */,
 				BFC125F21D51C9F000CAFA12 /* MJRefreshAutoFooter.m in Sources */,
 				BFFA56681D543AE800A3FB20 /* ZXDataMatrixTextEncoder.m in Sources */,
+				BF7CC2AD1D5601BA00E54980 /* UIView+ChangeFrame.m in Sources */,
 				BFFA56311D543AE800A3FB20 /* ZXWifiResultParser.m in Sources */,
 				BFC125231D51C75300CAFA12 /* Toast+UIView.m in Sources */,
 				BFFA56C51D543AE800A3FB20 /* ZXQRCodeDecodedBitStreamParser.m in Sources */,
