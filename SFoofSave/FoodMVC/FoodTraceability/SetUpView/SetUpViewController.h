@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^SetUPviewControllerBlock)(id message);
+
+
 @interface SetUpViewController : UIViewController
+@property (nonatomic,strong)SetUPviewControllerBlock block;
+
+- (void)getActionBlock:(SetUPviewControllerBlock)block;
+
 
 @end

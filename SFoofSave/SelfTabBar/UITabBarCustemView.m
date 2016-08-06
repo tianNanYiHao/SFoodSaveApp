@@ -40,11 +40,7 @@
         make.left.mas_equalTo(self.mas_left).offset(0);
         make.bottom.mas_equalTo(self.mas_bottom).offset(0);
     }];
-    
-    
-    
-    
-    
+
     //2centerBtn
     _centerBtn  = [UIButton buttonWithType:UIButtonTypeCustom];
     _centerBtn.adjustsImageWhenHighlighted = YES;
