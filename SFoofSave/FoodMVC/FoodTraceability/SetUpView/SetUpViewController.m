@@ -10,9 +10,9 @@
 #import "ComplaintViewController.h"
 @interface SetUpViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    
+    UITableView *_tableview
+    ;
 }
-@property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end
 
@@ -26,9 +26,13 @@
     // Do any additional setup after loading the view from its nib.
     self.title  = @"设置";
 
+    _tableview  = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, boundsWidth, boundsHeight-64) style:UITableViewStyleGrouped];
+    
     _tableview.dataSource = self;
     _tableview.delegate = self;
-    
+    _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
+    ;
+    [self.view addSubview:_tableview];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -36,7 +40,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return 1;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

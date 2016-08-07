@@ -15,6 +15,8 @@
                 <outlet property="email" destination="wZ1-I7-Naw" id="3Sm-2b-O3r"/>
                 <outlet property="mobile" destination="mHG-ha-Xkn" id="PgK-CA-6aq"/>
                 <outlet property="nameProduct" destination="OmC-Yg-N2r" id="SOg-Nn-8Vm"/>
+                <outlet property="photoImageShoew" destination="XUn-lp-y8u" id="r2q-Zb-Si0"/>
+                <outlet property="photoLab" destination="Lls-dD-EK8" id="8jM-2f-Y0Y"/>
                 <outlet property="sizeProduct" destination="T3m-bX-Pg3" id="q7q-Kx-J6k"/>
                 <outlet property="userName" destination="4FR-v2-x6H" id="6vh-77-h46"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -185,6 +187,9 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUn-lp-y8u">
+                                    <rect key="frame" x="270" y="5" width="30" height="30"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
