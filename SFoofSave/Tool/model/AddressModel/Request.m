@@ -2083,14 +2083,12 @@
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];//同步发送request，成功后会得到服务器返回的数据
     //返回的数据 根据系统的不同会返回不同编码的数据，比如windows 为GBK，Ubuntu 为UTF8.。。
     //注意转换编码格式
-//<<<<<<< HEAD 
-//    NSDictionary *dict =
-//=======
+
     NSString *sssssssss = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-//>>>>>>> master
+
     
     
-    [self requestWithDictSYpost:dict requestType:REQUSET_Complaint withUrl:@"complaints"];
+//    [self requestWithDictSYpost:dict requestType:REQUSET_Complaint withUrl:@"complaints"];
     
 }
 - (void)requestWithDictSYpost:(NSDictionary*)dict requestType:(NSInteger)type  withUrl:(NSString *)url{

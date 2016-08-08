@@ -164,9 +164,9 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    
-    
-    [UIView animateWithDuration:0.3 animations:^{
+
+    click = YES;
+    [UIView animateWithDuration:0.1 animations:^{
         self.navigationController.navigationBar.x = 0;
         _setUpViewController.view.x = boundsWidth;
         _homeBGview.x = 0;
