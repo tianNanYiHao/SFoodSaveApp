@@ -4,7 +4,7 @@
 //
 //  Created by Lff on 16/8/1.
 //  Copyright © 2016年 张倡榕. All rights reserved.
-//http://www.jianshu.com/p/e70a184d1f32
+//
 
 #import "ComplaintViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -50,8 +50,6 @@
     _rep = [[Request alloc] initWithDelegate:self];
 
     [self setImagePickerController];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

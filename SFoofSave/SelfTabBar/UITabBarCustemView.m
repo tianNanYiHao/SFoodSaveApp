@@ -28,7 +28,7 @@
 - (void)layoutView{
     
     
-    //1背景view
+
     _tabBarBaseView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"底部标签栏"]];
     _tabBarBaseView.userInteractionEnabled = YES;
 //    _tabBarBaseView.frame = CGRectMake(0,0,ScrenWidth, ScrenHeight);
@@ -41,7 +41,7 @@
         make.bottom.mas_equalTo(self.mas_bottom).offset(0);
     }];
 
-    //2centerBtn
+
     _centerBtn  = [UIButton buttonWithType:UIButtonTypeCustom];
     _centerBtn.adjustsImageWhenHighlighted = YES;
     [_centerBtn setImage:[UIImage imageNamed:@"扫一扫"] forState:UIControlStateNormal];
@@ -56,7 +56,7 @@
     }];
     
     
-    //3homeBtn
+
     _homeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_homeBtn setImage:[UIImage imageNamed:@"首页-正常"] forState:UIControlStateNormal];
     [_homeBtn setImage:[UIImage imageNamed:@"首页-选中"] forState:UIControlStateSelected];
@@ -70,7 +70,7 @@
         make.centerX.mas_equalTo(self.mas_centerX).offset(-_tabBarBaseView.frame.size.width/4);
         make.centerY.mas_equalTo(self.mas_centerY).offset(0);
     }];
-    //homeBtn.下标文字
+
     _homeLab = [[UILabel alloc] init];
     _homeLab.text = @"首页";
     _homeLab.textAlignment = NSTextAlignmentCenter;
@@ -87,7 +87,7 @@
     
     
     
-    //4myBtn
+ 
     _myBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_myBtn setImage:[UIImage imageNamed:@"我的-正常"] forState:UIControlStateNormal];
     [_myBtn setImage:[UIImage imageNamed:@"我的-选中"] forState:UIControlStateSelected];
@@ -101,7 +101,7 @@
         make.centerX.mas_equalTo(self.mas_centerX).offset(_tabBarBaseView.frame.size.width/4);
         make.centerY.mas_equalTo(self.mas_centerY).offset(0);
     }];
-    //myBtn.下标文字
+
     _myLab = [[UILabel alloc] init];
     _myLab.text = @"我的";
     _myLab.textAlignment = NSTextAlignmentCenter;
@@ -117,7 +117,7 @@
     
 }
 
-#pragma  mark - 按钮方法
+
 - (void)centerBtnClick:(UIButton*)btn{
     _block(_centerBtn.tag);
 }
