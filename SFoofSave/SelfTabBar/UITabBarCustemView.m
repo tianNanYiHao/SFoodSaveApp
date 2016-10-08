@@ -34,9 +34,10 @@
 //    _tabBarBaseView.frame = CGRectMake(0,0,ScrenWidth, ScrenHeight);
     [self addSubview:_tabBarBaseView];
     
+    CGFloat width = [UIApplication sharedApplication].keyWindow.frame.size.width;
     [_tabBarBaseView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(71);
-        make.width.mas_offset(self.frame.size.width);
+        make.width.mas_offset(width);
         make.left.mas_equalTo(self.mas_left).offset(0);
         make.bottom.mas_equalTo(self.mas_bottom).offset(0);
     }];
@@ -51,7 +52,7 @@
     [_centerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(96);
         make.width.mas_offset(96);
-        make.centerX.mas_equalTo(self.mas_centerX).offset(0);
+        make.centerX.mas_equalTo(_tabBarBaseView.mas_centerX).offset(0);
         make.centerY.mas_equalTo(self.mas_centerY).offset(0);
     }];
     
@@ -67,7 +68,7 @@
     [_homeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(56);
         make.width.mas_offset(50);
-        make.centerX.mas_equalTo(self.mas_centerX).offset(-_tabBarBaseView.frame.size.width/4);
+        make.centerX.mas_equalTo(_tabBarBaseView.mas_centerX).offset(-_tabBarBaseView.frame.size.width/4);
         make.centerY.mas_equalTo(self.mas_centerY).offset(0);
     }];
 
@@ -80,7 +81,7 @@
     [_homeLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(12);
         make.width.mas_offset(50);
-        make.centerX.mas_equalTo(self.mas_centerX).offset(-_tabBarBaseView.frame.size.width/4);
+        make.centerX.mas_equalTo(_tabBarBaseView.mas_centerX).offset(-_tabBarBaseView.frame.size.width/4);
         make.bottom.mas_equalTo(_homeBtn.mas_bottom).offset(0);
     }];
     
@@ -98,7 +99,7 @@
     [_myBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(56);
         make.width.mas_offset(50);
-        make.centerX.mas_equalTo(self.mas_centerX).offset(_tabBarBaseView.frame.size.width/4);
+        make.centerX.mas_equalTo(_tabBarBaseView.mas_centerX).offset(_tabBarBaseView.frame.size.width/4);
         make.centerY.mas_equalTo(self.mas_centerY).offset(0);
     }];
 
@@ -111,7 +112,7 @@
     [_myLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(12);
         make.width.mas_offset(50);
-        make.centerX.mas_equalTo(self.mas_centerX).offset(_tabBarBaseView.frame.size.width/4);
+        make.centerX.mas_equalTo(_tabBarBaseView.mas_centerX).offset(_tabBarBaseView.frame.size.width/4);
         make.bottom.mas_equalTo(_homeBtn.mas_bottom).offset(0);
     }];
     
