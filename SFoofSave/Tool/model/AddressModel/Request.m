@@ -18,9 +18,8 @@
 
 
 
-#define SHOP_BASE_URL @"http://101.231.98.131:8080/hdcctp/"
 
-#define MANGE_BASW_URL @"http://192.168.1.184:8888/api/" //理财基础URL
+
 #define SHOPSUOYUAN_BASEURL @"http://www.shfda.org/platform/rest/v2/" //商品朔源BaseUrl
 #define SHOPSUOYUAN_BASEURL2 @"http://www.shfda.org/platform/rest/v1/tag/validation/" //手动商品朔源
 
@@ -1974,20 +1973,25 @@
 }
 
 -(void)requestWihtdictSY:(NSString*)url requestType:(NSInteger)payType{
-    AFHTTPRequestOperationManager *manger = [AFHTTPRequestOperationManager manager];
+
+    
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     NSString *urlC = [NSString stringWithFormat:@"%@%@",SHOPSUOYUAN_BASEURL,url];
     urlC = [urlC stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    [manger GET:urlC parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manger GET:urlC parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dictReq = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
         if (dictReq && [_delegate respondsToSelector:@selector(responseWithDict:requestType:)]) {
             [self.delegate responseWithDict:dictReq requestType:payType];
             NSLog(@"tk%@",dictReq);
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@,%@",operation,[operation class]);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@,%@",task,[task class]);
         NSLog(@"%@",error);
     }];
 
@@ -2003,9 +2007,11 @@
     
 }
 -(void)requestWihtdictSY2:(NSString*)url requestType:(NSInteger)payType{
-    AFHTTPRequestOperationManager *manger = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     manger.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manger GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manger GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSString *aString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         
         NSDictionary *dictReq = [Request dictionaryWithJsonString:aString];
@@ -2013,9 +2019,8 @@
             [self.delegate responseWithDict:dictReq requestType:payType];
             NSLog(@"tk%@",dictReq);
         }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@,%@",operation,[operation class]);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@,%@",task,[task class]);
         NSLog(@"%@",error);
     }];
     
@@ -2092,18 +2097,21 @@
     
 }
 - (void)requestWithDictSYpost:(NSDictionary*)dict requestType:(NSInteger)type  withUrl:(NSString *)url{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json",nil];
     NSString *sss = [NSString stringWithFormat:@"%@%@",SHOPSUOYUAN_BASEURL,url];
     NSLog(@"sss== %@",sss);
-    [manager POST:sss parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"operation== %@responseObject== %@",operation,responseObject);
-            }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              NSLog(@"operation== %@ error== %@",operation,error);
-              NSLog(@"%@",operation.responseString);
-            }];
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    manger.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manger GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+
+    
+    
+    
 }
 @end
