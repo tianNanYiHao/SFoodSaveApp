@@ -47,24 +47,29 @@
     } progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSArray *array = responseObject[@"results"];
-        NSDictionary *dic = array[0];
-        NSString *appStoreVersion = dic[@"version"];
-        //打印版本号
-        NSLog(@"当前版本号:%@\n商店版本号:%@",currentVersion,appStoreVersion);
-        //4当前版本号小于商店版本号,就更新
-        int intSV = [[currentVersion stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
-        int intAV = [[appStoreVersion stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
         
-        if(intSV < intAV)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本有更新" message:[NSString stringWithFormat:@"检测到新版本(%@),是否更新?",appStoreVersion] delegate:self cancelButtonTitle:@"退出App"otherButtonTitles:@"更新",nil];
-            [alert show];
-            
-        }else{
-            NSLog(@"版本号好像比商店大噢!检测到不需要更新");
+        NSArray *array = responseObject[@"results"];
+        if (array.count==0) {
+            return ;
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        else{
+            NSDictionary *dic = array[0];
+            NSString *appStoreVersion = dic[@"version"];
+            //打印版本号
+            NSLog(@"当前版本号:%@\n商店版本号:%@",currentVersion,appStoreVersion);
+            //4当前版本号小于商店版本号,就更新
+            int intSV = [[currentVersion stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
+            int intAV = [[appStoreVersion stringByReplacingOccurrencesOfString:@"." withString:@""] intValue];
+            if(intSV < intAV)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本有更新" message:[NSString stringWithFormat:@"检测到新版本(%@),是否更新?",appStoreVersion] delegate:self cancelButtonTitle:@"退出App"otherButtonTitles:@"更新",nil];
+                [alert show];
+                
+            }else{
+                NSLog(@"版本号好像比商店大噢!检测到不需要更新");
+            }
+        }
+           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
 }

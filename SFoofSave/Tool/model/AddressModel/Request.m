@@ -1993,6 +1993,12 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@,%@",task,[task class]);
         NSLog(@"%@",error);
+        if (error.code == -1001) {
+            [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow WithString:@"请求超时,请稍后重试"];
+        }
+        if (error.code == -1009) {
+            [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow WithString:@"请求超时,请稍后重试"];
+        }
     }];
 
 }
@@ -2022,6 +2028,12 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@,%@",task,[task class]);
         NSLog(@"%@",error);
+        if (error.code == -1001) {
+            [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow WithString:@"请求超时,请稍后重试"];
+        }
+        if (error.code == -1009) {
+            [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow WithString:@"请求超时,请稍后重试"];
+        }
     }];
     
 }
