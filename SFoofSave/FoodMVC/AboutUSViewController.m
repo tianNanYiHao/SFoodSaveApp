@@ -9,6 +9,7 @@
 #import "AboutUSViewController.h"
 
 @interface AboutUSViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *infoLab;
 
 @end
 
@@ -18,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"关于我们";
+    _infoLab.text = @"上海银统金融服务有限公司欢迎您";
     
 }
 

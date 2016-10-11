@@ -9,6 +9,7 @@
 #import "VensionInfoViewController.h"
 
 @interface VensionInfoViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *vensionLab;
 
 @end
 
@@ -18,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"版本信息";
+    NSString *strVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] ;
+    _vensionLab.text = [NSString stringWithFormat:@"目前版本:%@",strVersion];
     
 }
 

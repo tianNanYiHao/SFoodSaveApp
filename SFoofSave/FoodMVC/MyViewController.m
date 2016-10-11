@@ -88,7 +88,7 @@
             [self.navigationController pushViewController:v animated:YES];
         }else if (indexPath.row ==1){
             //关于我们
-            VensionInfoViewController *v = [[VensionInfoViewController alloc] initWithNibName:@"VensionInfoViewController" bundle:nil];
+            AboutUSViewController *v = [[AboutUSViewController alloc] initWithNibName:@"AboutUSViewController" bundle:nil];
             v.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:v animated:YES];
         }
